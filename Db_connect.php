@@ -2,6 +2,7 @@
 
 class Db{
 
+    
     public $stmt;
     const DBNAME="Practice";
     const USERNAME="root";
@@ -15,23 +16,25 @@ class Db{
         }
     }
 
-   final public function callPdo()
-    {   
-        $pdo=Db::connection(self::DBNAME,self::USERNAME);
-        $stmt = $pdo->prepare("select * from  user");
-        $stmt->execute();
-        $this->stmt = $stmt;
-        return $this;
-    }
-        final public function updatePdo($id,$name,$number)
-        {
-            $pdo=Db::connection(self::DBNAME,self::USERNAME);
-            $stmt = $pdo->prepare("UPDATE user set name='$name', number='$number' where id ='$id'");
-            $stmt->execute();
-           // $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            $this->stmt = $stmt;
-            return $this;
-        } 
+//    final public function callPdo()
+//     {   
+//         $pdo=Db::connection(self::DBNAME,self::USERNAME);
+//         $stmt = $pdo->prepare("select * from  user");
+//         $stmt->execute();
+//         $this->stmt = $stmt;
+//         return $this;
+//     }
+//         final public function updatePdo($id,$name,$number)
+//         {
+//             $pdo=Db::connection(self::DBNAME,self::USERNAME);
+//             $stmt = $pdo->prepare("UPDATE user set name='$name', number='$number' where id ='$id'");
+//             $stmt->execute();
+//            // $data = $stmt->fetch(PDO::FETCH_ASSOC);
+//             $this->stmt = $stmt;
+//             return $this;
+//         } 
+
+      
 
 }
 
@@ -51,29 +54,42 @@ class Db{
 
 
 
-class User extends Db{
+// class User extends Db{
 
-    public static function all(){
-        $stmt = new Self;
-        return $stmt->callPdo()->stmt->fetch(PDO::FETCH_ASSOC);
-    }
+//     public static function all(){
+//         $stmt = new Self;
+//         return $stmt->callPdo()->stmt->fetch(PDO::FETCH_ASSOC);
+//     }
 
-    public static function find()
-    {
+//     public static function find()
+//     {
       
-        $stmt = new Self;
-       // var_dump(($stmt));
-        return $stmt->updatePdo(1,'Noman',123)->stmt->fetch(PDO::FETCH_ASSOC);
+//         $stmt = new Self;
+//        // var_dump(($stmt));
+//         return $stmt->updatePdo(1,'Noman',123)->stmt->fetch(PDO::FETCH_ASSOC);
   
-    }
-}
+//     }
+       
+//     public static function show()
+//     {
+      
+//         $stmt = new Self;
+//        // var_dump(($stmt));
+//         //return $stmt->selctAll()->stmt->fetch(PDO::FETCH_OBJ);
+  
+//     }
 
-$users = User::all();
+ 
+// }
 
-var_dump($users);
-$user = User::find();
+// $users = User::all();
 
-//var_dump($user);
+// //var_dump($users);
+// $user = User::find();
+
+// //var_dump(User::show()->name);
+
+// //var_dump($user);
 
 
 
